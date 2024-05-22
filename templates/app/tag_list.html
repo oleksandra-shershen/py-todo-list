@@ -21,7 +21,7 @@
                         <td>{{ tag.name }}</td>
                         <td>
                             <button style="background: gray; border: none;" class="btn">
-                                <a role="button" style="color: white" href="#">Update</a>
+                                <a role="button" style="color: white" href="{% url 'app:tag-update' pk=tag.id %}">Update</a>
                             </button>
                         </td>
                         <td>
