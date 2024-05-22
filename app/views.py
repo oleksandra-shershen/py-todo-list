@@ -16,3 +16,9 @@ class TaskListView(generic.ListView):
         context["today_datetime"] = datetime.datetime.now()
 
         return context
+
+
+class TagListView(generic.ListView):
+    model = Tag
+    context_object_name = "tag_list"
+    template_name = "app/tag_list.html"
