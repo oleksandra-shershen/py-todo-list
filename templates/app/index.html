@@ -39,7 +39,7 @@
                         {% endfor %}
                     </span>
                     <a href="{% url 'app:task-update' pk=task.id %}">Update</a>
-                    <a href="#">Delete</a>
+                    <a href="{% url 'app:task-delete' pk=task.id %}">Delete</a>
                 </div>
                 <hr>
             {% endfor %}

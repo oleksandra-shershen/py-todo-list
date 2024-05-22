@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete task?</h1>
+    <p>Are you sure you want to delete the task {{ task }}? This action cannot be undone.</p>
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes" class="btn btn-danger">
+    <a href="{% url 'app:index' %}" class="btn btn-secondary" style="margin-left: 20px">Cancel</a>
+  </form>
+{% endblock %}
