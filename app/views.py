@@ -3,7 +3,7 @@ import datetime
 from django.urls import reverse_lazy
 from django.views import generic
 
-from app.forms import TagForm
+from app.forms import TagForm, TaskForm
 from app.models import Tag, Task
 
 
@@ -19,6 +19,12 @@ class TaskListView(generic.ListView):
         context["today_datetime"] = datetime.datetime.now()
 
         return context
+
+
+class TaskCreateView(generic.CreateView):
+    model = Task
+    form_class = TaskForm
+    success_url = reverse_lazy("app:index")
 
 
 class TagListView(generic.ListView):

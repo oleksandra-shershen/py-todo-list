@@ -9,6 +9,7 @@ from app.views import (
     TagCreateView,
     TagUpdateView,
     TagDeleteView,
+    TaskCreateView,
 )
 
 urlpatterns = [
@@ -17,6 +18,7 @@ urlpatterns = [
     path("tag/create/", TagCreateView.as_view(), name="tag-create"),
     path("tag/<int:pk>/update/", TagUpdateView.as_view(), name="tag-update"),
     path("tag/<int:pk>/delete/", TagDeleteView.as_view(), name="tag-delete"),
+    path("task/create/", TaskCreateView.as_view(), name="task-create"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 app_name = "app"
