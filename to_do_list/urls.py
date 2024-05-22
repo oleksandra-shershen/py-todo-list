@@ -24,5 +24,4 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("app.urls", namespace="app")),
     path("__debug__/", include("debug_toolbar.urls")),
-    path("django_plotly_dash/", include("django_plotly_dash.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
