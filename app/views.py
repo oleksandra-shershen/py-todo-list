@@ -1,6 +1,9 @@
 import datetime
+
+from django.urls import reverse_lazy
 from django.views import generic
 
+from app.forms import TagForm
 from app.models import Tag, Task
 
 
@@ -22,3 +25,9 @@ class TagListView(generic.ListView):
     model = Tag
     context_object_name = "tag_list"
     template_name = "app/tag_list.html"
+
+
+class TagCreateView(generic.CreateView):
+    model = Tag
+    form_class = TagForm
+    success_url = reverse_lazy("app:tag-list")

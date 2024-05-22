@@ -3,7 +3,7 @@
 {% block content %}
     <h1>Tags list</h1>
     <button style="float: right; margin-right: 25px; bottom: 50px; position: relative;" class="btn btn-primary">
-        <a role="button" style="color: white" href="#">Add new tag</a>
+        <a role="button" style="color: white" href="{% url 'app:tag-create'%}">Add new tag</a>
     </button>
 
     {% if tag_list %}
