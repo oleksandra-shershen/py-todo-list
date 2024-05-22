@@ -12,6 +12,7 @@ from app.views import (
     TaskCreateView,
     TaskUpdateView,
     TaskDeleteView,
+    ToggleTaskStatus,
 )
 
 urlpatterns = [
@@ -23,6 +24,11 @@ urlpatterns = [
     path("task/create/", TaskCreateView.as_view(), name="task-create"),
     path("task/<int:pk>/update/", TaskUpdateView.as_view(), name="task-update"),
     path("task/<int:pk>/delete/", TaskDeleteView.as_view(), name="task-delete"),
+    path(
+        "toggle-task-status/<int:pk>/",
+        ToggleTaskStatus.as_view(),
+        name="toggle-task-status",
+    ),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 app_name = "app"

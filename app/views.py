@@ -1,7 +1,8 @@
 import datetime
 
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.views import generic
+from django.views import generic, View
 
 from app.forms import TagForm, TaskForm
 from app.models import Tag, Task
@@ -59,3 +60,11 @@ class TagUpdateView(generic.UpdateView):
 class TagDeleteView(generic.DeleteView):
     model = Tag
     success_url = reverse_lazy("app:tag-list")
+
+
+class ToggleTaskStatus(View):
+    def post(self, *args, **kwargs):
+        task = get_object_or_404(Task, pk=kwargs['pk'])
+        task.is_done = not task.is_done
+        task.save()
+        return redirect(reverse_lazy('app:index'))

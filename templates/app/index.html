@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>To Do List</h1>
-    <button style="float: right; bottom: 50px; position: relative" class="btn btn-primary" type="submit" value="submit">
+    <button style="float: right; bottom: 50px; position: relative" class="btn btn-primary">
         <a role="button" style="color: white" href="{% url 'app:task-create' %}">Add task</a>
     </button>
     <br>
@@ -14,13 +14,13 @@
                     <b>{{ task.title }}</b>
                     {% if task.is_done %}
                         <b><span class="text-success">Done</span></b>
-                        <form method="post" action="#" style="float: right;">
+                        <form method="post" action="{% url 'app:toggle-task-status' pk=task.id %}" style="float: right;">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-secondary">Undo</button>
                         </form>
                     {% else %}
                         <b><span class="text-danger">Not done</span></b>
-                        <form method="post" action="#" style="float: right;">
+                        <form method="post" action="{% url 'app:toggle-task-status' pk=task.id %}" style="float: right;">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-success">Complete</button>
                         </form>
