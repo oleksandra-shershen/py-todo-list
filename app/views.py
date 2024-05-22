@@ -74,40 +74,62 @@ class ToggleTaskStatus(View):
         return redirect(reverse_lazy("app:index"))
 
 
+plt.switch_backend("Agg")
+
+
 def tasks_by_tag_view(request):
     tags = Tag.objects.all()
     tasks_count_by_tag = {tag.name: tag.tasks.count() for tag in tags}
 
     plt.figure(figsize=(6, 4))
-    plt.bar(tasks_count_by_tag.keys(), tasks_count_by_tag.values(), color='skyblue')
-    plt.xlabel('Tags')
-    plt.ylabel('Number of Tasks')
+    plt.bar(
+        tasks_count_by_tag.keys(),
+        tasks_count_by_tag.values(),
+        color="skyblue"
+    )
+    plt.xlabel("Tags")
+    plt.ylabel("Number of Tasks")
 
     buffer = BytesIO()
-    plt.savefig(buffer, format='png')
+    plt.savefig(buffer, format="png")
     buffer.seek(0)
     bar_chart_png = buffer.getvalue()
     buffer.close()
 
-    bar_chart = base64.b64encode(bar_chart_png).decode('utf-8')
+    bar_chart = base64.b64encode(bar_chart_png).decode("utf-8")
 
     total_tasks = Task.objects.count()
     completed_tasks = Task.objects.filter(is_done=True).count()
     pending_tasks = total_tasks - completed_tasks
 
     plt.figure(figsize=(6, 4))
-    labels = ['Completed', 'Pending']
+    labels = ["Completed", "Pending"]
     sizes = [completed_tasks, pending_tasks]
-    colors = ['skyblue', '#FF7043']
+    colors = ["skyblue", "#FF7043"]
     explode = (0.1, 0)
-    plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
+    plt.pie(
+        sizes,
+        explode=explode,
+        labels=labels,
+        colors=colors,
+        autopct="%1.1f%%",
+        shadow=True,
+        startangle=140,
+    )
 
     buffer = BytesIO()
-    plt.savefig(buffer, format='png')
+    plt.savefig(buffer, format="png")
     buffer.seek(0)
     pie_chart_png = buffer.getvalue()
     buffer.close()
 
-    pie_chart = base64.b64encode(pie_chart_png).decode('utf-8')
+    pie_chart = base64.b64encode(pie_chart_png).decode("utf-8")
 
-    return render(request, 'app/statistics.html', {'bar_chart': bar_chart, 'pie_chart': pie_chart})
+    return render(
+        request,
+        "app/statistics.html",
+        {
+            "bar_chart": bar_chart,
+            "pie_chart": pie_chart
+        }
+    )
