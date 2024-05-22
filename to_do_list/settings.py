@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "app",
     "crispy_forms",
-    "bootstrap_datepicker_plus",
     "crispy_bootstrap5",
+    "bootstrap_datepicker_plus",
 ]
 
 MIDDLEWARE = [
