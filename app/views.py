@@ -64,7 +64,7 @@ class TagDeleteView(generic.DeleteView):
 
 class ToggleTaskStatus(View):
     def post(self, *args, **kwargs):
-        task = get_object_or_404(Task, pk=kwargs['pk'])
+        task = get_object_or_404(Task, pk=kwargs["pk"])
         task.is_done = not task.is_done
         task.save()
-        return redirect(reverse_lazy('app:index'))
+        return redirect(reverse_lazy("app:index"))
