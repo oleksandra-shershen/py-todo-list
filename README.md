@@ -7,7 +7,6 @@ This project is a simple yet powerful task management application built with Dja
 ## Features
 - **Task Management:** Create, read, update, and delete tasks.
 - **Tag Management:** Add tags to tasks and manage them separately.
-- **User Authentication:** Secure user authentication to manage personal tasks.
 - **Responsive Design:** The user interface is designed to be responsive and user-friendly.
 
 ## Technologies Used
@@ -67,3 +66,12 @@ python manage.py runserver
 Launches the Django development server, allowing you to access the web application via http://127.0.0.1:8000/ in your web browser.
 
 ## Demo
+![image](https://github.com/oleksandra-shershen/to-do-list/assets/105819546/360c2c76-4442-45da-8f7b-fd81e0ebace9)
+
+
+![image](https://github.com/oleksandra-shershen/to-do-list/assets/105819546/f38b2c35-18e6-4540-b1ec-d34a1b1ea183)
+
+
+![image](https://github.com/oleksandra-shershen/to-do-list/assets/105819546/8344f1d4-1601-466d-86a0-5fdf2af11a60)
+
+
