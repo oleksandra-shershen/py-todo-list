@@ -1,0 +1,21 @@
+<style>
+  .chart {
+    display: block;
+    margin-bottom: 40px;
+  }
+</style>
+{% extends "base.html" %}
+
+{% block title %}
+<title>Tasks Statistics</title>
+{% endblock %}
+
+{% block content %}
+<h1>Tasks Statistics</h1>
+<hr>
+<h4>Number of Tasks by Tags</h4>
+<img src="data:image/png;base64,{{ bar_chart }}" alt="Tasks by Tag" class="chart">
+
+<h4>Task Completion Status</h4>
+<img src="data:image/png;base64,{{ pie_chart }}" alt="Task Completion Status" class="chart">
+{% endblock %}
